@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>VYUHAA | Responsive Centered Logo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #06080C;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      /* Dynamic Viewport Units for exact mobile browser height fit */
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient Blueprint Grid Background */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at center, rgba(0, 229, 255, 0.05) 0%, transparent 70%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 32px 32px, 32px 32px;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      /* Responsive sizing with guaranteed side margins */
+      width: 90vw;
+      max-width: 420px;
+      /* Prevents vertical clipping on short phone screens */
+      max-height: 85vh; 
+      max-height: 85dvh;
+
+      /* Smooth Cinematic Zoom-Out Entrance */
+      animation: zoomOutCinematic 4.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      transform-origin: center center;
+    }
+
+    @keyframes zoomOutCinematic {
+      0% {
+        opacity: 0;
+        transform: scale(1.4);
+        filter: blur(10px);
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+      }
+    }
+
+    .logo-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Multi-layered Core Glow */
+    .glow-core {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.25) 0%, rgba(59, 130, 246, 0.1) 60%, transparent 100%);
+      filter: blur(30px);
+    }
+
+    .layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Continuous Animations */
+    .rotate-slow-cw {
+      animation: spin 35s linear infinite;
+      transform-origin: center;
+    }
+
+    .rotate-slow-ccw {
+      animation: spin-reverse 50s linear infinite;
+      transform-origin: center;
+    }
+
+    .pulse-subtle {
+      animation: pulse-glow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes pulse-glow {
+      0% { 
+        filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.4));
+        transform: scale(0.99);
+      }
+      100% { 
+        filter: drop-shadow(0 0 16px rgba(0, 229, 255, 0.8));
+        transform: scale(1.01);
+      }
+    }
+
+    /* Responsive Typography Section */
+    .text-container {
+      margin-top: 5vh;
+      text-align: center;
+      width: 100%;
+    }
+
+    .brand-title {
+      color: #FFFFFF;
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 900;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      padding-left: 0.35em;
+      background: linear-gradient(180deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      color: #00E5FF;
+      font-size: clamp(8px, 2vw, 10px);
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      padding-left: 0.25em;
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <div class="container">
+    <div class="logo-box">
+      <div class="glow-core"></div>
+
+      <svg class="layer" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="192" stroke="#1E293B" stroke-width="1.5" stroke-dasharray="2 12" />
+        <circle cx="200" cy="200" r="184" stroke="#334155" stroke-width="1" stroke-dasharray="1 8" opacity="0.6"/>
+        <path d="M 30 50 L 30 30 L 50 30" stroke="#00E5FF" stroke-width="2" opacity="0.4"/>
+        <path d="M 370 50 L 370 30 L 350 30" stroke="#00E5FF" stroke-width="2" opacity="0.4"/>
+        <path d="M 30 350 L 30 370 L 50 370" stroke="#00E5FF" stroke-width="2" opacity="0.4"/>
+        <path d="M 370 350 L 370 370 L 350 370" stroke="#00E5FF" stroke-width="2" opacity="0.4"/>
+      </svg>
+
+      <svg class="layer rotate-slow-ccw" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="172" stroke="#0F172A" stroke-width="3"/>
+        <circle cx="200" cy="200" r="172" stroke="#3B82F6" stroke-width="2.5" stroke-dasharray="60 140 100 100" stroke-linecap="round" opacity="0.6"/>
+        <circle cx="200" cy="200" r="172" stroke="#00E5FF" stroke-width="3" stroke-dasharray="20 380" stroke-linecap="round"/>
+        <circle cx="372" cy="200" r="3" fill="#00E5FF"/>
+      </svg>
+
+      <svg class="layer rotate-slow-cw" viewBox="0 0 400 400" fill="none" stroke-linecap="round">
+        <circle cx="200" cy="200" r="148" stroke="#1E293B" stroke-width="2"/>
+        <circle cx="200" cy="200" r="148" stroke="#00E5FF" stroke-width="3" stroke-dasharray="180 50 120 50"/>
+        
+        <path d="M 200 52 L 200 72" stroke="#00E5FF" stroke-width="2.5"/>
+        <path d="M 348 200 L 328 200" stroke="#3B82F6" stroke-width="2.5"/>
+        <path d="M 52 200 L 72 200" stroke="#00E5FF" stroke-width="2.5"/>
+
+        <circle cx="200" cy="200" r="124" stroke="#1E293B" stroke-width="2"/>
+        <circle cx="200" cy="200" r="124" stroke="#3B82F6" stroke-width="3" stroke-dasharray="100 40 150 30 70 30"/>
+
+        <circle cx="200" cy="200" r="100" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="140 30 80 40"/>
+        <path d="M 129 129 L 142 142" stroke="#00E5FF" stroke-width="2.5"/>
+        <path d="M 271 271 L 258 258" stroke="#3B82F6" stroke-width="2.5"/>
+
+        <circle cx="200" cy="200" r="76" stroke="#1E293B" stroke-width="2"/>
+        <circle cx="200" cy="200" r="76" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="90 30 110 30" opacity="0.8"/>
+      </svg>
+
+      <svg class="layer pulse-subtle" viewBox="0 0 400 400" fill="none">
+        <polygon points="200,138 248,166 248,234 200,262 152,234 152,166" 
+                 stroke="#1E293B" stroke-width="2" fill="#06080C" opacity="0.95"/>
+        <polygon points="200,138 248,166 248,234 200,262 152,234 152,166" 
+                 stroke="#00E5FF" stroke-width="1.5" stroke-dasharray="30 15 60 15" opacity="0.8"/>
+
+        <path d="M 172 174 L 200 228 L 228 174" 
+              stroke="#00E5FF" 
+              stroke-width="5" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+        <path d="M 184 174 L 200 206 L 216 174" 
+              stroke="#3B82F6" 
+              stroke-width="3" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"/>
+        <circle cx="200" cy="228" r="3" fill="#FFFFFF"/>
+      </svg>
+    </div>
+
+    <div class="text-container">
+      <div class="brand-title">VYUHAA</div>
+      <div class="brand-subtitle">STRATEGY • NETWORK • ARCHITECTURE</div>
+    </div>
+  </div>
+
+</body>
+</html>
