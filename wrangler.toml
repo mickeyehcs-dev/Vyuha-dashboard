@@ -1,5 +1,8 @@
-name = "vyuha-dashboard"
-compatibility_date = "2026-08-01"
+name = "vyuhaa-tunnel-proxy"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
 
 [assets]
 directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
